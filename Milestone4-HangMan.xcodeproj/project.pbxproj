@@ -6,6 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		409BF2D72D53B70D00399B14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2CB2D53B70D00399B14 /* AppDelegate.swift */; };
+		409BF2D82D53B70D00399B14 /* Milestone4_HangMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2D22D53B70D00399B14 /* Milestone4_HangMan.xcdatamodeld */; };
+		409BF2D92D53B70D00399B14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2D32D53B70D00399B14 /* SceneDelegate.swift */; };
+		409BF2DA2D53B70D00399B14 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2D42D53B70D00399B14 /* HomeVC.swift */; };
+		409BF2DB2D53B70D00399B14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2CC2D53B70D00399B14 /* Assets.xcassets */; };
+		409BF2DD2D53B70D00399B14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2CF2D53B70D00399B14 /* LaunchScreen.storyboard */; };
+		409BF2DE2D53B70D00399B14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2D12D53B70D00399B14 /* Main.storyboard */; };
+		409BF2E42D53BFC600399B14 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2E32D53BFC600399B14 /* UIViewController+Ext.swift */; };
+		409BF2E72D53C3DB00399B14 /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2E62D53C3DB00399B14 /* level1.txt */; };
+		409BF2E92D53C40C00399B14 /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2E82D53C40C00399B14 /* level2.txt */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		409BF2AE2D53B65D00399B14 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,27 +40,20 @@
 		409BF2942D53B65400399B14 /* Milestone4-HangMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Milestone4-HangMan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		409BF2AD2D53B65D00399B14 /* Milestone4-HangManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone4-HangManTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		409BF2B72D53B65D00399B14 /* Milestone4-HangManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone4-HangManUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		409BF2CB2D53B70D00399B14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		409BF2CC2D53B70D00399B14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		409BF2CD2D53B70D00399B14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		409BF2CE2D53B70D00399B14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		409BF2D02D53B70D00399B14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		409BF2D32D53B70D00399B14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		409BF2D42D53B70D00399B14 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		409BF2D62D53B70D00399B14 /* Milestone4_HangMan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Milestone4_HangMan.xcdatamodel; sourceTree = "<group>"; };
+		409BF2E32D53BFC600399B14 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		409BF2E62D53C3DB00399B14 /* level1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
+		409BF2E82D53C40C00399B14 /* level2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		409BF2BF2D53B65D00399B14 /* Exceptions for "Milestone4-HangMan" folder in "Milestone4-HangMan" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 409BF2932D53B65400399B14 /* Milestone4-HangMan */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		409BF2962D53B65400399B14 /* Milestone4-HangMan */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				409BF2BF2D53B65D00399B14 /* Exceptions for "Milestone4-HangMan" folder in "Milestone4-HangMan" target */,
-			);
-			path = "Milestone4-HangMan";
-			sourceTree = "<group>";
-		};
 		409BF2B02D53B65D00399B14 /* Milestone4-HangManTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Milestone4-HangManTests";
@@ -88,7 +94,7 @@
 		409BF28B2D53B65400399B14 = {
 			isa = PBXGroup;
 			children = (
-				409BF2962D53B65400399B14 /* Milestone4-HangMan */,
+				409BF2D52D53B70D00399B14 /* Milestone4-HangMan */,
 				409BF2B02D53B65D00399B14 /* Milestone4-HangManTests */,
 				409BF2BA2D53B65D00399B14 /* Milestone4-HangManUITests */,
 				409BF2952D53B65400399B14 /* Products */,
@@ -105,6 +111,48 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		409BF2D52D53B70D00399B14 /* Milestone4-HangMan */ = {
+			isa = PBXGroup;
+			children = (
+				409BF2E52D53BFD200399B14 /* Extensions */,
+				409BF2E02D53B7AF00399B14 /* Screens */,
+				409BF2DF2D53B72200399B14 /* Support */,
+				409BF2E62D53C3DB00399B14 /* level1.txt */,
+				409BF2E82D53C40C00399B14 /* level2.txt */,
+				409BF2CD2D53B70D00399B14 /* Info.plist */,
+			);
+			path = "Milestone4-HangMan";
+			sourceTree = "<group>";
+		};
+		409BF2DF2D53B72200399B14 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				409BF2CB2D53B70D00399B14 /* AppDelegate.swift */,
+				409BF2D32D53B70D00399B14 /* SceneDelegate.swift */,
+				409BF2CF2D53B70D00399B14 /* LaunchScreen.storyboard */,
+				409BF2D12D53B70D00399B14 /* Main.storyboard */,
+				409BF2D22D53B70D00399B14 /* Milestone4_HangMan.xcdatamodeld */,
+				409BF2CC2D53B70D00399B14 /* Assets.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		409BF2E02D53B7AF00399B14 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				409BF2D42D53B70D00399B14 /* HomeVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		409BF2E52D53BFD200399B14 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				409BF2E32D53BFC600399B14 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +167,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				409BF2962D53B65400399B14 /* Milestone4-HangMan */,
 			);
 			name = "Milestone4-HangMan";
 			packageProductDependencies = (
@@ -225,6 +270,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				409BF2E92D53C40C00399B14 /* level2.txt in Resources */,
+				409BF2DB2D53B70D00399B14 /* Assets.xcassets in Resources */,
+				409BF2E72D53C3DB00399B14 /* level1.txt in Resources */,
+				409BF2DD2D53B70D00399B14 /* LaunchScreen.storyboard in Resources */,
+				409BF2DE2D53B70D00399B14 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +299,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				409BF2D72D53B70D00399B14 /* AppDelegate.swift in Sources */,
+				409BF2D82D53B70D00399B14 /* Milestone4_HangMan.xcdatamodeld in Sources */,
+				409BF2D92D53B70D00399B14 /* SceneDelegate.swift in Sources */,
+				409BF2DA2D53B70D00399B14 /* HomeVC.swift in Sources */,
+				409BF2E42D53BFC600399B14 /* UIViewController+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +336,25 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		409BF2CF2D53B70D00399B14 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				409BF2CE2D53B70D00399B14 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		409BF2D12D53B70D00399B14 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				409BF2D02D53B70D00399B14 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		409BF2C12D53B65D00399B14 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -295,8 +369,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,8 +397,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -569,6 +643,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		409BF2D22D53B70D00399B14 /* Milestone4_HangMan.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				409BF2D62D53B70D00399B14 /* Milestone4_HangMan.xcdatamodel */,
+			);
+			currentVersion = 409BF2D62D53B70D00399B14 /* Milestone4_HangMan.xcdatamodel */;
+			path = Milestone4_HangMan.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 409BF28C2D53B65400399B14 /* Project object */;
 }
