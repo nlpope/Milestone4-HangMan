@@ -16,7 +16,6 @@
 		409BF2DE2D53B70D00399B14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2D12D53B70D00399B14 /* Main.storyboard */; };
 		409BF2E42D53BFC600399B14 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2E32D53BFC600399B14 /* UIViewController+Ext.swift */; };
 		409BF2E72D53C3DB00399B14 /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2E62D53C3DB00399B14 /* level1.txt */; };
-		409BF2E92D53C40C00399B14 /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2E82D53C40C00399B14 /* level2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		409BF2D62D53B70D00399B14 /* Milestone4_HangMan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Milestone4_HangMan.xcdatamodel; sourceTree = "<group>"; };
 		409BF2E32D53BFC600399B14 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		409BF2E62D53C3DB00399B14 /* level1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
-		409BF2E82D53C40C00399B14 /* level2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -118,7 +116,6 @@
 				409BF2E02D53B7AF00399B14 /* Screens */,
 				409BF2DF2D53B72200399B14 /* Support */,
 				409BF2E62D53C3DB00399B14 /* level1.txt */,
-				409BF2E82D53C40C00399B14 /* level2.txt */,
 				409BF2CD2D53B70D00399B14 /* Info.plist */,
 			);
 			path = "Milestone4-HangMan";
@@ -270,7 +267,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				409BF2E92D53C40C00399B14 /* level2.txt in Resources */,
 				409BF2DB2D53B70D00399B14 /* Assets.xcassets in Resources */,
 				409BF2E72D53C3DB00399B14 /* level1.txt in Resources */,
 				409BF2DD2D53B70D00399B14 /* LaunchScreen.storyboard in Resources */,

@@ -9,13 +9,17 @@ import UIKit
 
 class HomeVC: UIViewController
 {
+    var currentSolution: String!
+    { didSet { clueLabel.text = currentSolution ?? "testing" } }
+    
     var scoreLabel: UILabel!
     var clueLabel: UILabel!
-    var letterButtons       = [UIButton]()
-    var activatedButtons    = [UIButton]()
-    var solutions           = [String]()
-    var answerSpaces        = [Character]()
+    var submitButton: UIButton!
+    var clearButton: UIButton!
+    var letterButtonsView: UIView!
+    // handle population buttons in a for loop
     
+    var activatedButtons    = [UIButton]()
     var level               = 1
     var correctAnswers      = 0
     var score               = 0 { didSet { scoreLabel.text = "Score: \(score)" } }
@@ -30,6 +34,7 @@ class HomeVC: UIViewController
         addSubviews()
     }
     
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -43,9 +48,11 @@ class HomeVC: UIViewController
         scoreLabel.textAlignment    = .right
         scoreLabel.text             = "Score: 0"
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        
     }
     
     
-    func addSubviews() { addSubviewz(scoreLabel, clueLabel) }
+    func addSubviews() { addSubviewz(scoreLabel, submitButton, clearButton, letterButtonsView) }
 }
 
