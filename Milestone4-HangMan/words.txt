@@ -1,3 +1,4 @@
+DOG: This good boy says "woof"
 HAUNTED: Ghosts in residence
 LEPROSY: A Biblical skin disease
 TWITTER: Short online chirping

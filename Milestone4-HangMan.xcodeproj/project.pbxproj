@@ -15,7 +15,7 @@
 		409BF2DD2D53B70D00399B14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2CF2D53B70D00399B14 /* LaunchScreen.storyboard */; };
 		409BF2DE2D53B70D00399B14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2D12D53B70D00399B14 /* Main.storyboard */; };
 		409BF2E42D53BFC600399B14 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2E32D53BFC600399B14 /* UIViewController+Ext.swift */; };
-		409BF2E72D53C3DB00399B14 /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2E62D53C3DB00399B14 /* level1.txt */; };
+		409BF2E72D53C3DB00399B14 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2E62D53C3DB00399B14 /* words.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		409BF2D42D53B70D00399B14 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		409BF2D62D53B70D00399B14 /* Milestone4_HangMan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Milestone4_HangMan.xcdatamodel; sourceTree = "<group>"; };
 		409BF2E32D53BFC600399B14 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
-		409BF2E62D53C3DB00399B14 /* level1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
+		409BF2E62D53C3DB00399B14 /* words.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -115,7 +115,7 @@
 				409BF2E52D53BFD200399B14 /* Extensions */,
 				409BF2E02D53B7AF00399B14 /* Screens */,
 				409BF2DF2D53B72200399B14 /* Support */,
-				409BF2E62D53C3DB00399B14 /* level1.txt */,
+				409BF2E62D53C3DB00399B14 /* words.txt */,
 				409BF2CD2D53B70D00399B14 /* Info.plist */,
 			);
 			path = "Milestone4-HangMan";
@@ -268,7 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				409BF2DB2D53B70D00399B14 /* Assets.xcassets in Resources */,
-				409BF2E72D53C3DB00399B14 /* level1.txt in Resources */,
+				409BF2E72D53C3DB00399B14 /* words.txt in Resources */,
 				409BF2DD2D53B70D00399B14 /* LaunchScreen.storyboard in Resources */,
 				409BF2DE2D53B70D00399B14 /* Main.storyboard in Resources */,
 			);
@@ -365,8 +365,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,8 +392,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
