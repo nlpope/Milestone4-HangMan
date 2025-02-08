@@ -14,8 +14,9 @@ class HomeVC: UIViewController
     
     var scoreLabel: UILabel!
     var clueLabel: UILabel!
-    var answerSpacesView: UIView!
+    var answerBoxesView: UIView!
     var letterButtonsView: UIView!
+    var heartsView: UIView!
     
     var activatedButtons    = [UIButton]()
     var level               = 1
@@ -34,7 +35,7 @@ class HomeVC: UIViewController
     {
         super.viewDidLoad()
         configureNavigation()
-        fillDictionary()
+        fetchDictionary()
         loadLevel()
     }
     
@@ -68,11 +69,11 @@ class HomeVC: UIViewController
         
         //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
         // MARK: ANSWER SPACES VIEW & LETTER BUTTONS VIEW SETUP
-        answerSpacesView.translatesAutoresizingMaskIntoConstraints = false
+        answerBoxesView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubviewsExt(scoreLabel,
                     clueLabel,
-                    answerSpacesView,
+                    answerBoxesView,
                     letterButtonsView)
         
         //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
@@ -87,9 +88,9 @@ class HomeVC: UIViewController
             clueLabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.6, constant: 0),
             
             //answer spaces
-            answerSpacesView.topAnchor.constraint(equalTo: clueLabel.bottomAnchor, constant: 200),
-            answerSpacesView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor),
-            answerSpacesView.bottomAnchor.constraint(equalTo: letterButtonsView.topAnchor, constant: 200)
+            answerBoxesView.topAnchor.constraint(equalTo: clueLabel.bottomAnchor, constant: 200),
+            answerBoxesView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor),
+            answerBoxesView.bottomAnchor.constraint(equalTo: letterButtonsView.topAnchor, constant: 200),
             
             // alph. buttons
             letterButtonsView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.4),
@@ -99,17 +100,16 @@ class HomeVC: UIViewController
     }
     
     
-    func fillDictionary()
+    func fetchDictionary()
     {
-        //        DispatchQueue.global(qos: .userInitiated).async {
-        //            var clueString      = ""
-        //            var solutionString  = ""
-        //            var letterButtons   = [Character]()
-        //
-        //            if let levelFileURL = Bundle.main.url(forResource: "level\(self.level)", withExtension: "txt") {
-        ////                if let levelContents = try? String
-        //            }
-        //        }
+        DispatchQueue.global(qos: .userInitiated).async {
+            var clueString      = ""
+            var solutionString  = ""
+            var letterButtons   = [Character]()
+
+            if let levelFileURL = Bundle.main.url(forResource: "words", withExtension: "txt") {
+            }
+        }
     }
     
     //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
@@ -138,7 +138,6 @@ class HomeVC: UIViewController
     {
         guard let answerText                    = correctAnswer else { return }
         
-        if let solutionPosition                 =
     }
     
     
