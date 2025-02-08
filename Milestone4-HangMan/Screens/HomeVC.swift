@@ -53,6 +53,8 @@ class HomeVC: UIViewController
     
     func configureSubViews()
     {
+        //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
+        // MARK: SCORE & CLUE LABEL SETUP
         scoreLabel                  = UILabel()
         scoreLabel.textAlignment    = .right
         scoreLabel.text             = "Score: 0"
@@ -67,12 +69,33 @@ class HomeVC: UIViewController
         //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
         // MARK: ANSWER SPACES VIEW & LETTER BUTTONS VIEW SETUP
         answerSpacesView.translatesAutoresizingMaskIntoConstraints = false
-        // 26 spaces for all letters in alph.
         
         addSubviewsExt(scoreLabel,
                     clueLabel,
                     answerSpacesView,
                     letterButtonsView)
+        
+        //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
+        // MARK: NSLAYOUT CONSTRAINTS
+        NSLayoutConstraint.activate([
+            scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            scoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            
+            // clue label
+            clueLabel.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 200),
+            clueLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 100),
+            clueLabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.6, constant: 0),
+            
+            //answer spaces
+            answerSpacesView.topAnchor.constraint(equalTo: clueLabel.bottomAnchor, constant: 200),
+            answerSpacesView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor),
+            answerSpacesView.bottomAnchor.constraint(equalTo: letterButtonsView.topAnchor, constant: 200)
+            
+            // alph. buttons
+            letterButtonsView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.4),
+            letterButtonsView.heightAnchor.constraint(equalToConstant: 320),
+            letterButtonsView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
     
     
