@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4054F4DD2D57F4AD00B48550 /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4054F4DC2D57F4AD00B48550 /* Dictionary+Ext.swift */; };
 		409BF2D72D53B70D00399B14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2CB2D53B70D00399B14 /* AppDelegate.swift */; };
 		409BF2D82D53B70D00399B14 /* Milestone4_HangMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2D22D53B70D00399B14 /* Milestone4_HangMan.xcdatamodeld */; };
 		409BF2D92D53B70D00399B14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2D32D53B70D00399B14 /* SceneDelegate.swift */; };
@@ -14,7 +15,6 @@
 		409BF2DB2D53B70D00399B14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2CC2D53B70D00399B14 /* Assets.xcassets */; };
 		409BF2DD2D53B70D00399B14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2CF2D53B70D00399B14 /* LaunchScreen.storyboard */; };
 		409BF2DE2D53B70D00399B14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2D12D53B70D00399B14 /* Main.storyboard */; };
-		409BF2E42D53BFC600399B14 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2E32D53BFC600399B14 /* UIViewController+Ext.swift */; };
 		409BF2E72D53C3DB00399B14 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 409BF2E62D53C3DB00399B14 /* words.txt */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4054F4DC2D57F4AD00B48550 /* Dictionary+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
 		409BF2942D53B65400399B14 /* Milestone4-HangMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Milestone4-HangMan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		409BF2AD2D53B65D00399B14 /* Milestone4-HangManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone4-HangManTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		409BF2B72D53B65D00399B14 /* Milestone4-HangManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone4-HangManUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,7 +48,6 @@
 		409BF2D32D53B70D00399B14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		409BF2D42D53B70D00399B14 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		409BF2D62D53B70D00399B14 /* Milestone4_HangMan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Milestone4_HangMan.xcdatamodel; sourceTree = "<group>"; };
-		409BF2E32D53BFC600399B14 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		409BF2E62D53C3DB00399B14 /* words.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,7 +153,7 @@
 		409BF2E52D53BFD200399B14 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				409BF2E32D53BFC600399B14 /* UIViewController+Ext.swift */,
+				4054F4DC2D57F4AD00B48550 /* Dictionary+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -304,10 +304,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				409BF2D72D53B70D00399B14 /* AppDelegate.swift in Sources */,
+				4054F4DD2D57F4AD00B48550 /* Dictionary+Ext.swift in Sources */,
 				409BF2D82D53B70D00399B14 /* Milestone4_HangMan.xcdatamodeld in Sources */,
 				409BF2D92D53B70D00399B14 /* SceneDelegate.swift in Sources */,
 				409BF2DA2D53B70D00399B14 /* HomeVC.swift in Sources */,
-				409BF2E42D53BFC600399B14 /* UIViewController+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
