@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4054F4DD2D57F4AD00B48550 /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4054F4DC2D57F4AD00B48550 /* Dictionary+Ext.swift */; };
+		4054F4E02D5C279200B48550 /* Constants+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4054F4DF2D5C279200B48550 /* Constants+Utils.swift */; };
 		409BF2D72D53B70D00399B14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2CB2D53B70D00399B14 /* AppDelegate.swift */; };
 		409BF2D82D53B70D00399B14 /* Milestone4_HangMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2D22D53B70D00399B14 /* Milestone4_HangMan.xcdatamodeld */; };
 		409BF2D92D53B70D00399B14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BF2D32D53B70D00399B14 /* SceneDelegate.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		4054F4DC2D57F4AD00B48550 /* Dictionary+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
+		4054F4DF2D5C279200B48550 /* Constants+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Utils.swift"; sourceTree = "<group>"; };
 		409BF2942D53B65400399B14 /* Milestone4-HangMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Milestone4-HangMan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		409BF2AD2D53B65D00399B14 /* Milestone4-HangManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone4-HangManTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		409BF2B72D53B65D00399B14 /* Milestone4-HangManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Milestone4-HangManUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,7 @@
 		4054F4DB2D56F2CA00B48550 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4054F4DF2D5C279200B48550 /* Constants+Utils.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				409BF2D72D53B70D00399B14 /* AppDelegate.swift in Sources */,
+				4054F4E02D5C279200B48550 /* Constants+Utils.swift in Sources */,
 				4054F4DD2D57F4AD00B48550 /* Dictionary+Ext.swift in Sources */,
 				409BF2D82D53B70D00399B14 /* Milestone4_HangMan.xcdatamodeld in Sources */,
 				409BF2D92D53B70D00399B14 /* SceneDelegate.swift in Sources */,

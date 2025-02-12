@@ -36,16 +36,18 @@ class HomeVC: UIViewController
     {
         super.viewDidLoad()
         configureNavigation()
-//        fetchDictionary()
-//        loadLevel()
+        fetchDictionary()
+        loadLives()
+        loadLevel()
     }
     
     
     func configureView()
     {
         view                        = UIView()
-        view.backgroundColor        = .systemGray
+        view.backgroundColor        = .systemBackground
     }
+    
     
     func configureSubViews()
     {
@@ -58,7 +60,7 @@ class HomeVC: UIViewController
         
         clueLabel                           = UILabel()
         clueLabel.backgroundColor           = .systemCyan
-        clueLabel.font                      = UIFont.systemFont(ofSize: 35)
+        clueLabel.font                      = UIFont.systemFont(ofSize: 45)
         clueLabel.text                      = "THIS GOOD BOY GOES 'WOOF'"
         clueLabel.textAlignment             = .center
         clueLabel.numberOfLines             = 0
@@ -76,7 +78,6 @@ class HomeVC: UIViewController
         view.addSubview(letterButtonsView)
         
         livesView                           = UIView()
-        livesView.backgroundColor           = .systemRed
         livesView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(livesView)
         
@@ -117,9 +118,10 @@ class HomeVC: UIViewController
     func fetchDictionary()
     {
         answerClueDict  = [
+            "dog":"the good boy that goes 'woofz'",
             "hey":"hello",
             "yo":"yoyo",
-            "oy":"berar jerry",
+            "moy":"berar jerry",
             "jingle":"bells"
         ]
         
@@ -131,6 +133,15 @@ class HomeVC: UIViewController
 //            if let levelFileURL = Bundle.main.url(forResource: "words", withExtension: "txt") {
 //            }
 //        }
+    }
+    
+    
+    func loadLives(atX)
+    {
+//        let heartBox    = UIImageView(image: ImageKeys.pixelheart)
+        let heartBox      = UIImageView(frame: CGRect(x: <#T##Int#>, y: <#T##Int#>, width: <#T##Int#>, height: <#T##Int#>))
+        //sizeToFit()
+    
     }
     
     
@@ -151,9 +162,10 @@ class HomeVC: UIViewController
         
         currentClue     = answerClueDict.values.randomElement()
         currentAnswer   = answerClueDict.getKey(forValue: currentClue)
-        clueLabel.text = currentClue
+        clueLabel.text  = currentClue
         
         // re-configure answer space count
+        
     }
     
     
