@@ -10,8 +10,9 @@ import UIKit
 class HomeVC: UIViewController
 {
     var answerClueDict      = [ String:String ]()
-    var currentAnswer: String! { didSet { configureSubViews() } }
-    var currentClue: String!
+    var ACDictValues  = [String]()
+    var currentAnswerKey: String! { didSet { configureSubViews() } }
+    var currentClueValue: String!
     
     var levelLabel: UILabel!
     var scoreLabel: UILabel!
@@ -23,10 +24,10 @@ class HomeVC: UIViewController
     var lettersArray        = [String]()
     var letterBtnsArray     = [UIButton]()
     var usedLetterBtnsArray = [UIButton]()
-    var currentLevel        = 0
     var correctAnswers      = 0
-    var numberOfLives       = 3 { didSet { livesLabel.text = "Lives: \(numberOfLives)"} }
+    var currentLevel        = 0 { didSet { levelLabel.text = "Level: \(currentLevel)" } }
     var score               = 0 { didSet { scoreLabel.text = "Score: \(score)" } }
+    var numberOfLives       = 3 { didSet { livesLabel.text = "Lives: \(numberOfLives)" } }
     
     
     override func loadView()
@@ -129,19 +130,22 @@ class HomeVC: UIViewController
     
     func configureNavigation()
     {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(resetLevel))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(resetLevel))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(loadNewLevel))
     }
     
     
     func fetchDictionary()
     {
-        answerClueDict  = [
+        answerClueDict      = [
             "dog":"the good boy that goes 'woofz'",
             "hey":"hello",
             "ma":"yoyo",
             "moy":"berar jerry",
             "jingle":"bells"
         ]
+        ACDictValues  = answerClueDict.values.shuffled()
+
         print("anscludictcount = \(answerClueDict.count)")
         
 //        DispatchQueue.global(qos: .userInitiated).async {
@@ -155,17 +159,20 @@ class HomeVC: UIViewController
     }
     
     
-    func loadNewLevel()
+    #warning("remove @objc after testing")
+    @objc func loadNewLevel()
     {
-        if currentLevel >= answerClueDict.count { currentLevel = 0 }
+        if currentLevel >= answerClueDict.count { currentLevel = 1 }
         else { currentLevel += 1 }
         
-//        currentClue     = answerClueDict.values.randomElement()
-//        currentAnswer   = shuffledDictionary.getKey(forValue: currentClue)
-//        clueLabel.text  = currentClue
+//        currentClueValue    = answerClueDict.values.first
+//        currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)
+        currentClueValue    = ACDictValues[currentLevel]
+        currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)
+        clueLabel.text      = currentClueValue
         
         var ansTxt      = ""
-        for _ in 1...currentAnswer.count {
+        for _ in 1...currentAnswerKey.count {
             ansTxt.append("?")
         }
         
@@ -198,7 +205,7 @@ class HomeVC: UIViewController
         guard let buttonTitle   = sender.titleLabel?.text else { return }
         sender.isEnabled        = false
         // if current ans.contains buttontitle > fill in the space
-        if currentAnswer.contains(buttonTitle) {
+        if currentAnswerKey.contains(buttonTitle) {
             // .ishidden is false on the answer field
         }
     }
@@ -207,7 +214,7 @@ class HomeVC: UIViewController
     @objc func verifyAnswer(_ sender: UIButton)
     {
         // for letters in currentanswer, check each '?' & replace w the sender's text if it exists in that space
-        guard let answerText    = currentAnswer else { return }
+        guard let answerText    = currentAnswerKey else { return }
     }
 }
 
