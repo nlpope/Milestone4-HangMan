@@ -18,8 +18,8 @@ class HomeVC: UIViewController
     var scoreLabel: UILabel!
     var livesLabel: UILabel!
     var clueLabel: UILabel!
-    var answerLabel: UILabel!
-    var letterButtonsView: UIView!
+    var answerField: UILabel!
+    var letterButtonsVerticalStackView: UIStackView!
     
     var lettersArray        = [String]()
     var letterBtnsArray     = [UIButton]()
@@ -43,6 +43,7 @@ class HomeVC: UIViewController
         configureNavigation()
         fetchDictionary()
         loadNewLevel()
+        layoutKeyboard()
     }
     
     
@@ -84,19 +85,17 @@ class HomeVC: UIViewController
         clueLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(clueLabel)
 
-        answerLabel                         = UILabel()
-        answerLabel.backgroundColor         = .systemBlue
-        answerLabel.font                    = UIFont.systemFont(ofSize: 45)
-        answerLabel.text                    = "?"
-        answerLabel.textAlignment           = .center
-        answerLabel.numberOfLines           = 0
-        answerLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(answerLabel)
+        answerField                         = UILabel()
+        answerField.backgroundColor         = .systemBlue
+        answerField.font                    = UIFont.systemFont(ofSize: 45)
+        answerField.textAlignment           = .center
+        answerField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(answerField)
 
-        letterButtonsView                   = UIView()
-        letterButtonsView.backgroundColor   = .systemPurple
-        letterButtonsView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(letterButtonsView)
+        letterButtonsVerticalStackView                   = UIStackView()
+        letterButtonsVerticalStackView.backgroundColor   = .systemPurple
+        letterButtonsVerticalStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(letterButtonsVerticalStackView)
         
         NSLayoutConstraint.activate([
             currentLevelLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -113,16 +112,16 @@ class HomeVC: UIViewController
             clueLabel.heightAnchor.constraint(equalToConstant: 150),
             clueLabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.8),
           
-            answerLabel.topAnchor.constraint(equalTo: clueLabel.bottomAnchor, constant: 40),
-            answerLabel.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
-            answerLabel.heightAnchor.constraint(equalToConstant: 100),
-            answerLabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.8),
+            answerField.topAnchor.constraint(equalTo: clueLabel.bottomAnchor, constant: 40),
+            answerField.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
+            answerField.heightAnchor.constraint(equalToConstant: 100),
+            answerField.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.8),
 
 
-            letterButtonsView.topAnchor.constraint(equalTo: answerLabel.bottomAnchor, constant: 40),
-            letterButtonsView.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
-            letterButtonsView.heightAnchor.constraint(equalToConstant: 200),
-            letterButtonsView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.8)
+            letterButtonsVerticalStackView.topAnchor.constraint(equalTo: answerField.bottomAnchor, constant: 40),
+            letterButtonsVerticalStackView.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
+            letterButtonsVerticalStackView.heightAnchor.constraint(equalToConstant: 200),
+            letterButtonsVerticalStackView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.8)
         ])
     }
     
@@ -142,7 +141,8 @@ class HomeVC: UIViewController
             "hey":"hello",
             "ma":"yoyo",
             "moy":"berar jerry",
-            "jingle":"bells"
+            "jingle":"bells",
+            "rhythym":"move to the ..."
         ]
         ACDictValues  = answerClueDict.values.shuffled()
         
@@ -171,7 +171,28 @@ class HomeVC: UIViewController
             ansTxt.append("?")
         }
         
-        answerLabel.text    = ansTxt
+        answerField.text    = ansTxt
+    }
+    
+    
+    func layoutKeyboard()
+    {
+        letterButtonsVerticalStackView.axis          = .vertical
+        letterButtonsVerticalStackView.distribution  = .fillEqually
+        
+        for i in 1...3 {
+            let horizontalStack            = UIStackView()
+            horizontalStack.axis           = .horizontal
+            horizontalStack.distribution   = .fillEqually
+            
+            for _ in 1...12 {
+                let letterBtn = UIButton()
+                letterBtn.setTitle("Z", for: .normal)
+                letterBtnsArray.append(letterBtn)
+                horizontalStack.addArrangedSubview(letterBtn)
+            }
+            letterButtonsVerticalStackView.addArrangedSubview(horizontalStack)
+        }
     }
     
     
@@ -211,5 +232,11 @@ class HomeVC: UIViewController
         // for letters in currentanswer, check each '?' & replace w the sender's text if it exists in that space
         guard let answerText    = currentAnswerKey else { return }
     }
+}
+
+
+extension HomeVC: UITextFieldDelegate
+{
+   
 }
 
