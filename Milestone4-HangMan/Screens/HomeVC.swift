@@ -165,8 +165,6 @@ class HomeVC: UIViewController
         if currentLevel >= answerClueDict.count { currentLevel = 1 }
         else { currentLevel += 1 }
         
-//        currentClueValue    = answerClueDict.values.first
-//        currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)
         currentClueValue    = ACDictValues[currentLevel]
         currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)
         clueLabel.text      = currentClueValue
