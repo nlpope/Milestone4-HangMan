@@ -131,7 +131,7 @@ class HomeVC: UIViewController
     {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh,
                                                            target: self,
-                                                           action: #selector(loadNewLevel))
+                                                           action: #selector(resetLevel))
     }
     
     
@@ -157,13 +157,12 @@ class HomeVC: UIViewController
     }
     
     
-    #warning("remove @objc after testing")
-    @objc func loadNewLevel()
+    func loadNewLevel()
     {
-        if currentLevel > answerClueDict.count { currentLevel = 1 }
+        if currentLevel > answerClueDict.count - 1 { currentLevel = 1 }
         else { currentLevel += 1 }
         
-        currentClueValue    = ACDictValues[currentLevel]
+        currentClueValue    = ACDictValues[currentLevel - 1]
         currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)
         clueLabel.text      = currentClueValue
         
@@ -191,7 +190,7 @@ class HomeVC: UIViewController
         // reactivate btns
         // clear answer space
         // change nothing else
-        
+        loadNewLevel()
         print("resetting level")
     }
     
