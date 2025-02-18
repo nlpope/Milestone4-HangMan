@@ -11,10 +11,10 @@ class HomeVC: UIViewController
 {
     var answerClueDict      = [ String:String ]()
     var ACDictValues  = [String]()
-    var currentAnswerKey: String! { didSet { configureSubViews() } }
+    var currentAnswerKey: String!
     var currentClueValue: String!
     
-    var levelLabel: UILabel!
+    var currentLevelLabel: UILabel!
     var scoreLabel: UILabel!
     var livesLabel: UILabel!
     var clueLabel: UILabel!
@@ -25,7 +25,7 @@ class HomeVC: UIViewController
     var letterBtnsArray     = [UIButton]()
     var usedLetterBtnsArray = [UIButton]()
     var correctAnswers      = 0
-    var currentLevel        = 0 { didSet { levelLabel.text = "Level: \(currentLevel)" } }
+    var currentLevel        = 0 { didSet { currentLevelLabel.text = "Level: \(currentLevel)" } }
     var score               = 0 { didSet { scoreLabel.text = "Score: \(score)" } }
     var numberOfLives       = 3 { didSet { livesLabel.text = "Lives: \(numberOfLives)" } }
     
@@ -55,12 +55,11 @@ class HomeVC: UIViewController
     
     func configureSubViews()
     {
-        levelLabel                          = UILabel()
-        levelLabel.font                     = UIFont.systemFont(ofSize: 25)
-        levelLabel.textAlignment            = .left
-        levelLabel.text                     = "Level: \(currentLevel)"
-        levelLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(levelLabel)
+        currentLevelLabel                          = UILabel()
+        currentLevelLabel.font                     = UIFont.systemFont(ofSize: 25)
+        currentLevelLabel.textAlignment            = .left
+        currentLevelLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(currentLevelLabel)
         
         scoreLabel                          = UILabel()
         scoreLabel.font                     = UIFont.systemFont(ofSize: 25)
@@ -100,8 +99,8 @@ class HomeVC: UIViewController
         view.addSubview(letterButtonsView)
         
         NSLayoutConstraint.activate([
-            levelLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            levelLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            currentLevelLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            currentLevelLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             
             scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             scoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
@@ -130,8 +129,9 @@ class HomeVC: UIViewController
     
     func configureNavigation()
     {
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(resetLevel))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(loadNewLevel))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh,
+                                                           target: self,
+                                                           action: #selector(loadNewLevel))
     }
     
     
@@ -145,8 +145,6 @@ class HomeVC: UIViewController
             "jingle":"bells"
         ]
         ACDictValues  = answerClueDict.values.shuffled()
-
-        print("anscludictcount = \(answerClueDict.count)")
         
 //        DispatchQueue.global(qos: .userInitiated).async {
 //            var clueString      = ""
@@ -162,7 +160,7 @@ class HomeVC: UIViewController
     #warning("remove @objc after testing")
     @objc func loadNewLevel()
     {
-        if currentLevel >= answerClueDict.count { currentLevel = 1 }
+        if currentLevel > answerClueDict.count { currentLevel = 1 }
         else { currentLevel += 1 }
         
         currentClueValue    = ACDictValues[currentLevel]
