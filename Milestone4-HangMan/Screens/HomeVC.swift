@@ -147,7 +147,7 @@ class HomeVC: UIViewController
         else { currentLevel += 1 }
         
         currentClueValue    = ACDictValues[currentLevel - 1]
-        currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)
+        currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)?.uppercased()
         clueLabel.text      = currentClueValue
         
         encryptedString = currentAnswerKey
@@ -223,17 +223,19 @@ class HomeVC: UIViewController
         sender.isEnabled = false
         print("\(selectedLetter) button tapped")
 
-        if currentAnswerKey.uppercased().contains(selectedLetter)
+        if currentAnswerKey.contains(selectedLetter)
         {
             sender.backgroundColor  = .systemGreen
-            for i in 0..<currentAnswerKey.count
+            for offset in 0..<currentAnswerKey.count
             {
-                let currentLetter = currentAnswerKey.index(currentAnswerKey.startIndex, offsetBy: i)
-                print(currentLetter)
-//                if currentLetter == selectedLetter
-//                {
-//                    
-//                }
+                #warning("problem child")
+                let i = currentAnswerKey.index(currentAnswerKey.startIndex, offsetBy: offset)
+                let j = encryptedString.index(encryptedString.startIndex, offsetBy: offset)
+                if String(currentAnswerKey[i]) == selectedLetter
+                {
+                    encryptedString[j]
+                    answerField.text = encryptedString
+                }
             }
         }
         else
