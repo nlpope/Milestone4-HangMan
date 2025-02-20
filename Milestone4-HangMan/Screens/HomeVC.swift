@@ -9,8 +9,8 @@ import UIKit
 
 class HomeVC: UIViewController
 {
-    var answerClueDict      = [ String:String ]()
-    var ACDictValues  = [String]()
+    var answerClueDict      = [String:String]()
+    var ACDictValues        = [String]()
     var currentAnswerKey: String!
     var currentClueValue: String!
     
@@ -21,7 +21,6 @@ class HomeVC: UIViewController
     var answerField: UILabel!
     var letterButtonsVerticalStackView: UIStackView!
     
-    var lettersArray        = [String]()
     var letterBtnsArray     = [UIButton]()
     var usedLetterBtnsArray = [UIButton]()
     var correctAnswers      = 0
@@ -79,7 +78,7 @@ class HomeVC: UIViewController
         clueLabel                           = UILabel()
         clueLabel.backgroundColor           = .systemCyan
         clueLabel.font                      = UIFont.systemFont(ofSize: 45)
-        clueLabel.text                      = "THIS GOOD BOY GOES 'WOOF'"
+        clueLabel.text                      = "THIS GOOD BOY GOES 'WOOFZ'"
         clueLabel.textAlignment             = .center
         clueLabel.numberOfLines             = 0
         clueLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -134,26 +133,10 @@ class HomeVC: UIViewController
     }
     
     
-    func fetchDictionary()
+    private func fetchDictionary()
     {
-        answerClueDict      = [
-            "dog":"the good boy that goes 'woofz'",
-            "hey":"hello",
-            "ma":"yoyo",
-            "moy":"berar jerry",
-            "jingle":"bells",
-            "rhythym":"move to the ..."
-        ]
+        answerClueDict = NetworkManager.shared.fetchDictionary()
         ACDictValues  = answerClueDict.values.shuffled()
-        
-//        DispatchQueue.global(qos: .userInitiated).async {
-//            var clueString      = ""
-//            var solutionString  = ""
-//            var letterButtons   = [Character]()
-//
-//            if let levelFileURL = Bundle.main.url(forResource: "words", withExtension: "txt") {
-//            }
-//        }
     }
     
     
@@ -166,28 +149,40 @@ class HomeVC: UIViewController
         currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)
         clueLabel.text      = currentClueValue
         
-        var ansTxt      = ""
-        for _ in 1...currentAnswerKey.count {
-            ansTxt.append("?")
+        var encryptedString = currentAnswerKey
+        let patternsAndReplacements = [
+            ("[a-zA-Z]", "?"),
+            (" ", "   ")
+        ]
+       
+        for (pattern, replacement) in patternsAndReplacements {
+            encryptedString = encryptedString!.replacingOccurrences(of: pattern,
+                                                                    with: replacement,
+                                                                    options: .regularExpression)
         }
         
-        answerField.text    = ansTxt
+        answerField.text = encryptedString
     }
     
     
     func layoutKeyboard()
     {
-        letterButtonsVerticalStackView.axis          = .vertical
-        letterButtonsVerticalStackView.distribution  = .fillEqually
+        let lettersArray: [[String]]                    = [
+            ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+            ["N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+        ]
+        letterButtonsVerticalStackView.axis             = .vertical
+        letterButtonsVerticalStackView.distribution     = .fillEqually
         
-        for i in 1...3 {
+        for i in 0...1 {
             let horizontalStack            = UIStackView()
             horizontalStack.axis           = .horizontal
             horizontalStack.distribution   = .fillEqually
             
-            for _ in 1...12 {
+            for j in 0...12 {
                 let letterBtn = UIButton()
-                letterBtn.setTitle("Z", for: .normal)
+                
+                letterBtn.setTitle(lettersArray[i][j], for: .normal)
                 letterBtnsArray.append(letterBtn)
                 horizontalStack.addArrangedSubview(letterBtn)
             }
@@ -220,23 +215,14 @@ class HomeVC: UIViewController
     {
         guard let buttonTitle   = sender.titleLabel?.text else { return }
         sender.isEnabled        = false
-        // if current ans.contains buttontitle > fill in the space
         if currentAnswerKey.contains(buttonTitle) {
-            // .ishidden is false on the answer field
         }
     }
     
     
-    @objc func verifyAnswer(_ sender: UIButton)
-    {
-        // for letters in currentanswer, check each '?' & replace w the sender's text if it exists in that space
-        guard let answerText    = currentAnswerKey else { return }
-    }
+//    @objc func verifyAnswer(_ sender: UIButton)
+//    {
+//        // for letters in currentanswer, check each '?' & replace w the sender's text if it exists in that space
+//        guard let answerText    = currentAnswerKey else { return }
+//    }
 }
-
-
-extension HomeVC: UITextFieldDelegate
-{
-   
-}
-
