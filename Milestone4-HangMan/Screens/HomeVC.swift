@@ -13,6 +13,7 @@ class HomeVC: UIViewController
     var ACDictValues        = [String]()
     var currentAnswerKey: String!
     var currentClueValue: String!
+    var encryptedString: String! = ""
     
     var currentLevelLabel: UILabel!
     var scoreLabel: UILabel!
@@ -149,7 +150,7 @@ class HomeVC: UIViewController
         currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)
         clueLabel.text      = currentClueValue
         
-        var encryptedString = currentAnswerKey
+        encryptedString = currentAnswerKey
         let patternsAndReplacements = [
             ("[a-zA-Z]", "?"),
             (" ", "   ")
@@ -186,7 +187,7 @@ class HomeVC: UIViewController
                 letterBtn.setTitle(lettersArray[i][j], for: .normal)
                 letterBtn.titleLabel?.font = UIFont.systemFont(ofSize: 35)
 //                letterBtn.layer.borderColor = UIColor.black.cgColor
-                letterBtn.addTarget(self, action: #selector(letterTapped(_:)), for: .touchUpInside)
+                letterBtn.addTarget(self, action: #selector(verifyLetter(_:)), for: .touchUpInside)
                 letterBtnsArray.append(letterBtn)
                 horizontalStack.addArrangedSubview(letterBtn)
             }
@@ -215,19 +216,29 @@ class HomeVC: UIViewController
     }
     
     
-    @objc func letterTapped(_ sender: UIButton)
+    @objc func verifyLetter(_ sender: UIButton)
     {
-        print("\(sender.titleLabel!.text!) button tapped")
-//        guard let buttonTitle   = sender.titleLabel?.text else { return }
-//        sender.isEnabled        = false
-//        if currentAnswerKey.contains(buttonTitle) {
-//        }
+        guard let selectedLetter = sender.titleLabel?.text
+        else { return }
+        sender.isEnabled = false
+        print("\(selectedLetter) button tapped")
+
+        if currentAnswerKey.uppercased().contains(selectedLetter)
+        {
+            sender.backgroundColor  = .systemGreen
+            for i in 0..<currentAnswerKey.count
+            {
+                let currentLetter = currentAnswerKey.index(currentAnswerKey.startIndex, offsetBy: i)
+                print(currentLetter)
+//                if currentLetter == selectedLetter
+//                {
+//                    
+//                }
+            }
+        }
+        else
+        {
+            sender.backgroundColor  = .systemPink
+        }
     }
-    
-    
-//    @objc func verifyAnswer(_ sender: UIButton)
-//    {
-//        // for letters in currentanswer, check each '?' & replace w the sender's text if it exists in that space
-//        guard let answerText    = currentAnswerKey else { return }
-//    }
 }
