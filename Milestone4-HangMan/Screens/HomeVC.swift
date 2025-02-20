@@ -78,7 +78,7 @@ class HomeVC: UIViewController
         clueLabel                           = UILabel()
         clueLabel.backgroundColor           = .systemCyan
         clueLabel.font                      = UIFont.systemFont(ofSize: 45)
-        clueLabel.text                      = "THIS GOOD BOY GOES 'WOOFZ'"
+        clueLabel.text                      = "WHAAAAAAAAAAAA?"
         clueLabel.textAlignment             = .center
         clueLabel.numberOfLines             = 0
         clueLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -167,7 +167,8 @@ class HomeVC: UIViewController
     
     func layoutKeyboard()
     {
-        let lettersArray: [[String]]                    = [
+        let lettersArray: [[String]]                    =
+        [
             ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
             ["N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
         ]
@@ -183,6 +184,9 @@ class HomeVC: UIViewController
                 let letterBtn = UIButton()
                 
                 letterBtn.setTitle(lettersArray[i][j], for: .normal)
+                letterBtn.titleLabel?.font = UIFont.systemFont(ofSize: 35)
+//                letterBtn.layer.borderColor = UIColor.black.cgColor
+                letterBtn.addTarget(self, action: #selector(letterTapped(_:)), for: .touchUpInside)
                 letterBtnsArray.append(letterBtn)
                 horizontalStack.addArrangedSubview(letterBtn)
             }
@@ -213,10 +217,11 @@ class HomeVC: UIViewController
     
     @objc func letterTapped(_ sender: UIButton)
     {
-        guard let buttonTitle   = sender.titleLabel?.text else { return }
-        sender.isEnabled        = false
-        if currentAnswerKey.contains(buttonTitle) {
-        }
+        print("\(sender.titleLabel!.text!) button tapped")
+//        guard let buttonTitle   = sender.titleLabel?.text else { return }
+//        sender.isEnabled        = false
+//        if currentAnswerKey.contains(buttonTitle) {
+//        }
     }
     
     
