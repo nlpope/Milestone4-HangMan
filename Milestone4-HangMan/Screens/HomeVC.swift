@@ -31,6 +31,8 @@ class HomeVC: UIViewController
     var numberOfLives       = LifeKey.maxLives { didSet { livesLabel.text = "Lives: \(numberOfLives)" } }
     
     
+    //-------------------------------------//
+    // MARK: METHODS
     override func loadView()
     {
         configureView()
@@ -121,8 +123,8 @@ class HomeVC: UIViewController
         present(ac, animated: true)
     }
     
-    //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
-    // MARK: OBJC FUNCS
+    //-------------------------------------//
+    // MARK: OBJC METHODS
     @objc func resetLevel()
     {
         resetKeyboard()

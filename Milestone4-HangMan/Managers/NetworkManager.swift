@@ -25,13 +25,13 @@ class NetworkManager
             "rhythym and dance":"jump to the ..."
         ]
         
-//        DispatchQueue.global(qos: .userInitiated).async {
-//            var clueString      = ""
-//            var solutionString  = ""
-//            var letterButtons   = [Character]()
-//
-//            if let levelFileURL = Bundle.main.url(forResource: "words", withExtension: "txt") {
-//            }
-//        }
+        DispatchQueue.global(qos: .userInitiated).async {
+            var clueString      = ""
+            var solutionString  = ""
+            var letterButtons   = [Character]()
+
+            if let levelFileURL = Bundle.main.url(forResource: "words", withExtension: "txt") {
+            }
+        }
     }
 }
