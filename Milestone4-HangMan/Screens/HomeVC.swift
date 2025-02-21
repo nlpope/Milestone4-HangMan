@@ -14,6 +14,7 @@ class HomeVC: UIViewController
     var currentAnswerKey: String!
     var currentClueValue: String!
     var encryptedAnswer: String! = ""
+    var encryptedAnswerArray = [Character]()
     
     var currentLevelLabel: UILabel!
     var scoreLabel: UILabel!
@@ -150,11 +151,8 @@ class HomeVC: UIViewController
         currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)?.uppercased()
         clueLabel.text      = currentClueValue
         
-        encryptedAnswer = currentAnswerKey
-        let patternsAndReplacements = [
-            ("[a-zA-Z]", "?"),
-            (" ", "   ")
-        ]
+        encryptedAnswer     = currentAnswerKey
+        let patternsAndReplacements = [ ("[a-zA-Z]", "?") ]
        
         for (pattern, replacement) in patternsAndReplacements {
             encryptedAnswer = encryptedAnswer!.replacingOccurrences(of: pattern,
@@ -163,6 +161,7 @@ class HomeVC: UIViewController
         }
         
         answerField.text = encryptedAnswer
+        encryptedAnswerArray = Array(encryptedAnswer)
     }
     
     
@@ -225,19 +224,14 @@ class HomeVC: UIViewController
         if currentAnswerKey.contains(selectedLetter)
         {
             sender.backgroundColor      = .systemGreen
-            //iterate thru both currentanskey and encrypted string
-            let currentAnswerKeyArray   = currentAnswerKey.components(separatedBy: "")
-            var encryptedAnswerArray    = encryptedAnswer.components(separatedBy: "")
-            for i in 0..<currentAnswerKeyArray.count {
-                print("workingz")
-                if currentAnswerKeyArray[i] == selectedLetter {
-                    encryptedAnswerArray[i] = "*"
-                    print("working")
-                    print(encryptedAnswerArray)
-                    encryptedAnswer = encryptedAnswerArray.joined()
-                    print(encryptedAnswer!)
+            let currentAnsArray         = Array(currentAnswerKey)
+            
+            for i in 0..<currentAnsArray.count {
+                if String(currentAnsArray[i]) == selectedLetter {
+                    encryptedAnswerArray[i] = Character(selectedLetter)
                 }
             }
+            answerField.text    = String(encryptedAnswerArray)
         }
         else
         {
