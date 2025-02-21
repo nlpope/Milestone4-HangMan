@@ -13,7 +13,7 @@ class HomeVC: UIViewController
     var ACDictValues        = [String]()
     var currentAnswerKey: String!
     var currentClueValue: String!
-    var encryptedString: String! = ""
+    var encryptedAnswer: String! = ""
     
     var currentLevelLabel: UILabel!
     var scoreLabel: UILabel!
@@ -56,9 +56,9 @@ class HomeVC: UIViewController
     
     func configureSubViews()
     {
-        currentLevelLabel                          = UILabel()
-        currentLevelLabel.font                     = UIFont.systemFont(ofSize: 25)
-        currentLevelLabel.textAlignment            = .left
+        currentLevelLabel                   = UILabel()
+        currentLevelLabel.font              = UIFont.systemFont(ofSize: 25)
+        currentLevelLabel.textAlignment     = .left
         currentLevelLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(currentLevelLabel)
         
@@ -150,31 +150,31 @@ class HomeVC: UIViewController
         currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)?.uppercased()
         clueLabel.text      = currentClueValue
         
-        encryptedString = currentAnswerKey
+        encryptedAnswer = currentAnswerKey
         let patternsAndReplacements = [
             ("[a-zA-Z]", "?"),
             (" ", "   ")
         ]
        
         for (pattern, replacement) in patternsAndReplacements {
-            encryptedString = encryptedString!.replacingOccurrences(of: pattern,
+            encryptedAnswer = encryptedAnswer!.replacingOccurrences(of: pattern,
                                                                     with: replacement,
                                                                     options: .regularExpression)
         }
         
-        answerField.text = encryptedString
+        answerField.text = encryptedAnswer
     }
     
     
     func layoutKeyboard()
     {
+        letterButtonsVerticalStackView.axis             = .vertical
+        letterButtonsVerticalStackView.distribution     = .fillEqually
         let lettersArray: [[String]]                    =
         [
             ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
             ["N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
         ]
-        letterButtonsVerticalStackView.axis             = .vertical
-        letterButtonsVerticalStackView.distribution     = .fillEqually
         
         for i in 0...1 {
             let horizontalStack            = UIStackView()
@@ -186,7 +186,6 @@ class HomeVC: UIViewController
                 
                 letterBtn.setTitle(lettersArray[i][j], for: .normal)
                 letterBtn.titleLabel?.font = UIFont.systemFont(ofSize: 35)
-//                letterBtn.layer.borderColor = UIColor.black.cgColor
                 letterBtn.addTarget(self, action: #selector(verifyLetter(_:)), for: .touchUpInside)
                 letterBtnsArray.append(letterBtn)
                 horizontalStack.addArrangedSubview(letterBtn)
@@ -225,16 +224,18 @@ class HomeVC: UIViewController
 
         if currentAnswerKey.contains(selectedLetter)
         {
-            sender.backgroundColor  = .systemGreen
-            for offset in 0..<currentAnswerKey.count
-            {
-                #warning("problem child")
-                let i = currentAnswerKey.index(currentAnswerKey.startIndex, offsetBy: offset)
-                let j = encryptedString.index(encryptedString.startIndex, offsetBy: offset)
-                if String(currentAnswerKey[i]) == selectedLetter
-                {
-                    encryptedString[j]
-                    answerField.text = encryptedString
+            sender.backgroundColor      = .systemGreen
+            //iterate thru both currentanskey and encrypted string
+            let currentAnswerKeyArray   = currentAnswerKey.components(separatedBy: "")
+            var encryptedAnswerArray    = encryptedAnswer.components(separatedBy: "")
+            for i in 0..<currentAnswerKeyArray.count {
+                print("workingz")
+                if currentAnswerKeyArray[i] == selectedLetter {
+                    encryptedAnswerArray[i] = "*"
+                    print("working")
+                    print(encryptedAnswerArray)
+                    encryptedAnswer = encryptedAnswerArray.joined()
+                    print(encryptedAnswer!)
                 }
             }
         }
