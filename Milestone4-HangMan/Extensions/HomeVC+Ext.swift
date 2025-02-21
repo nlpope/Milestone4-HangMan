@@ -62,8 +62,10 @@ extension HomeVC
         answerField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(answerField)
 
-        letterButtonsVerticalStackView                   = UIStackView()
-        letterButtonsVerticalStackView.backgroundColor   = .systemPurple
+        letterButtonsVerticalStackView                      = UIStackView()
+        letterButtonsVerticalStackView.backgroundColor      = .systemGray
+        letterButtonsVerticalStackView.layer.borderWidth    = 1.0
+        letterButtonsVerticalStackView.layer.borderColor    = CGColor(gray: 1.0, alpha: 1.0)
         letterButtonsVerticalStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(letterButtonsVerticalStackView)
         
@@ -116,6 +118,7 @@ extension HomeVC
                 
                 letterBtn.setTitle(lettersArray[i][j], for: .normal)
                 letterBtn.titleLabel?.font = UIFont.systemFont(ofSize: 35)
+                letterBtn.titleLabel?.textColor = .black
                 letterBtn.addTarget(self, action: #selector(verifyLetter(_:)), for: .touchUpInside)
                 letterBtnsArray.append(letterBtn)
                 horizontalStack.addArrangedSubview(letterBtn)

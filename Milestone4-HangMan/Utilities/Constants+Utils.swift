@@ -11,3 +11,8 @@ enum ImageKeys
 {
     static let pixelheart   = UIImage(named: "pixelHeart")
 }
+
+enum LifeKey
+{
+    static let maxLives = 5
+}

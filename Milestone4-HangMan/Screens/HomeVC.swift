@@ -28,7 +28,7 @@ class HomeVC: UIViewController
     var correctAnswers      = 0
     var currentLevel        = 0 { didSet { currentLevelLabel.text = "Level: \(currentLevel)" } }
     var score               = 0 { didSet { scoreLabel.text = "Score: \(score)" } }
-    var numberOfLives       = 3 { didSet { livesLabel.text = "Lives: \(numberOfLives)" } }
+    var numberOfLives       = LifeKey.maxLives { didSet { livesLabel.text = "Lives: \(numberOfLives)" } }
     
     
     override func loadView()
@@ -57,13 +57,21 @@ class HomeVC: UIViewController
     
     func loadNewLevel()
     {
+        if currentLevel >= 1 { score += 1 }
         if currentLevel > answerClueDict.count - 1 { currentLevel = 1 }
         else { currentLevel += 1 }
         
+        numberOfLives       = LifeKey.maxLives
         currentClueValue    = ACDictValues[currentLevel - 1]
         currentAnswerKey    = answerClueDict.getKey(forValue: currentClueValue)?.uppercased()
         clueLabel.text      = currentClueValue
-        
+        encryptAnswer()
+        resetKeyboard()
+    }
+    
+    
+    func encryptAnswer()
+    {
         encryptedAnswer     = currentAnswerKey
         let patternsAndReplacements = [ ("[a-zA-Z]", "?") ]
        
@@ -82,6 +90,17 @@ class HomeVC: UIViewController
     {
         numberOfLives -= 1
         if numberOfLives < 1 { presentGameOver(win: false) }
+    }
+    
+    
+    func resetKeyboard()
+    {
+        for i in 0..<usedLetterBtnsArray.count {
+            usedLetterBtnsArray[i].isEnabled        = true
+            usedLetterBtnsArray[i].backgroundColor  = .systemGray
+        }
+        usedLetterBtnsArray.removeAll(keepingCapacity: true)
+
     }
     
     
@@ -106,11 +125,9 @@ class HomeVC: UIViewController
     // MARK: OBJC FUNCS
     @objc func resetLevel()
     {
-        // reactivate btns
-        // clear answer space
-        // change nothing else
-        #warning("loop thru letter btns & reset disabled prop")
-        loadNewLevel()
+        resetKeyboard()
+        encryptAnswer()
+        numberOfLives = LifeKey.maxLives
     }
     
     
@@ -119,6 +136,7 @@ class HomeVC: UIViewController
         guard let selectedLetter = sender.titleLabel?.text
         else { return }
         sender.isEnabled = false
+        usedLetterBtnsArray.append(sender)
 
         if currentAnswerKey.contains(selectedLetter)
         {
@@ -137,5 +155,7 @@ class HomeVC: UIViewController
             sender.backgroundColor  = .systemPink
             deductLife()
         }
+        
+        if answerField.text?.contains("?") == false { presentGameOver(win: true) }
     }
 }
