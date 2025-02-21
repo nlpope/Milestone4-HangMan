@@ -9,12 +9,12 @@ import UIKit
 
 class HomeVC: UIViewController
 {
-    var answerClueDict      = [String:String]()
-    var ACDictValues        = [String]()
+    var answerClueDict              = [String:String]()
+    var ACDictValues                = [String]()
     var currentAnswerKey: String!
     var currentClueValue: String!
-    var encryptedAnswer: String! = ""
-    var encryptedAnswerArray = [Character]()
+    var encryptedAnswer: String!    = ""
+    var encryptedAnswerArray        = [Character]()
     
     var currentLevelLabel: UILabel!
     var scoreLabel: UILabel!
@@ -78,9 +78,25 @@ class HomeVC: UIViewController
     }
     
     
-    func presentWinLoseAlert() {
-        let ac = UIAlertController(title: "Incorrect", message: "Wrong answer. Please try again.", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default)
+    func deductLife()
+    {
+        numberOfLives -= 1
+        if numberOfLives < 1 { presentGameOver(win: false) }
+    }
+    
+    
+    func presentGameOver(win: Bool) {
+        var ac      = UIAlertController()
+        var action  = UIAlertAction()
+        if !win {
+            ac      = UIAlertController(title: "You Lose.", message: "Hit the btn below to try again.", preferredStyle: .alert)
+            action  = UIAlertAction(title: "Reset", style: .default) { _ in self.resetLevel() }
+        }
+        else {
+            ac      = UIAlertController(title: "You Won!", message: "Hit the btn below to load next level.", preferredStyle: .alert)
+            action  = UIAlertAction(title: "Next Level", style: .default) { _ in self.loadNewLevel() }
+        }
+        
         ac.addAction(action)
         
         present(ac, animated: true)
@@ -93,6 +109,7 @@ class HomeVC: UIViewController
         // reactivate btns
         // clear answer space
         // change nothing else
+        #warning("loop thru letter btns & reset disabled prop")
         loadNewLevel()
     }
     
@@ -118,6 +135,7 @@ class HomeVC: UIViewController
         else
         {
             sender.backgroundColor  = .systemPink
+            deductLife()
         }
     }
 }
