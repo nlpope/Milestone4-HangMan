@@ -16,22 +16,26 @@ class NetworkManager
     
     func fetchDictionary() -> Dictionary<String,String>
     {
-        return [
-            "cat dog":"the good boy that goes 'woof'",
-            "hey whats going on":"hello",
-            "ma ma":"yoyo",
-            "moy":"berar jerry",
-            "jingle":"bells",
-            "rhythym and dance":"jump to the ..."
-        ]
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            var clueString      = ""
-            var solutionString  = ""
-            var letterButtons   = [Character]()
+        var finalDict           = Dictionary<String,String>()
 
-            if let levelFileURL = Bundle.main.url(forResource: "words", withExtension: "txt") {
+        DispatchQueue.global(qos: .userInteractive).sync
+        {
+
+            guard let gameFileURL   = Bundle.main.url(forResource: "words", withExtension: "txt")
+            else { return }
+            guard let gameContents  = try? String(contentsOf: gameFileURL, encoding: .ascii)
+            else { return }
+            
+            let lines = gameContents.trimmingCharacters(in: .newlines).components(separatedBy: "\n")
+            for line in lines
+            {
+                let parts = line.components(separatedBy: ": ")
+                let answer  = parts[0]
+                let clue    = parts[1]
+                
+                finalDict[answer] = clue
             }
         }
+        return finalDict
     }
 }

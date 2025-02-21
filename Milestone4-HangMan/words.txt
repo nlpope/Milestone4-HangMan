@@ -1,9 +1,14 @@
-DOG: This good boy says "woof"
+CAT DOG: The good boy that goes 'woofmeow'
 HAUNTED: Ghosts in residence
 LEPROSY: A Biblical skin disease
-TWITTER: Short online chirping
+TWEET: Short online chirping
 OLIVER: Has a Dickensian twist
 ELIZABETH: Head of state, British style
 SAFARI: The zoological web
 PORTLAND: Hipster heartland
 SPIDERMAN: Favorite Marvel Character
+I FEEL LIKE WALKING: It's been a long time
+MA MA: yoyo
+MOY: Berar jerry
+JINGLE: Bells
+RHYTHYM AND DANCE: Jump to the ...
