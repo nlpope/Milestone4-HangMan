@@ -29,7 +29,7 @@ class NetworkManager
             let lines = gameContents.trimmingCharacters(in: .newlines).components(separatedBy: "\n")
             for line in lines
             {
-                let parts = line.components(separatedBy: ": ")
+                let parts   = line.components(separatedBy: ": ")
                 let answer  = parts[0]
                 let clue    = parts[1]
                 
