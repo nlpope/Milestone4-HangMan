@@ -20,7 +20,6 @@ class NetworkManager
 
         DispatchQueue.global(qos: .userInteractive).sync
         {
-
             guard let gameFileURL   = Bundle.main.url(forResource: "words", withExtension: "txt")
             else { return }
             guard let gameContents  = try? String(contentsOf: gameFileURL, encoding: .ascii)
