@@ -38,3 +38,5 @@ class NetworkManager
         return finalDict
     }
 }
+
+// reading up on concurrency
